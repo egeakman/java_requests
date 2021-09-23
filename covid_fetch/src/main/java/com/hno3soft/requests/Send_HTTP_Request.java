@@ -19,9 +19,9 @@ public class Send_HTTP_Request {
         String url = "http://httpbin.org/ip";
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-        // optional default is GET
+        // define method
         con.setRequestMethod("GET");
-        // add request header
+
         con.setRequestProperty("User-Agent", "Mozilla/5.0");
         int responseCode = con.getResponseCode();
         System.out.println("\nSending 'GET' request to URL : " + url);
@@ -34,10 +34,10 @@ public class Send_HTTP_Request {
         }
         in.close();
 
-        // print in String
+        // print without json
         System.out.println(response.toString());
 
-        // Read JSON response and print
+        // read JSON response and print
         JSONObject myResponse = new JSONObject(response.toString());
         System.out.println("result after Reading JSON Response");
         System.out.println("IP " + myResponse.getString("origin"));
