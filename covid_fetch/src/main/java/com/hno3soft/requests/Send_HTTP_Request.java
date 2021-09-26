@@ -24,7 +24,6 @@ public class Send_HTTP_Request {
 
         con.setRequestProperty("User-Agent", "Mozilla/5.0");
         int responseCode = con.getResponseCode();
-        System.out.println("\nSending 'GET' request to URL : " + url);
         System.out.println("Response Code : " + responseCode);
         BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
         String inputLine;
@@ -37,10 +36,8 @@ public class Send_HTTP_Request {
         // print without json
         System.out.println(response.toString());
 
-        // read JSON response and print
-        JSONObject myResponse = new JSONObject(response.toString());
-        System.out.println("result after Reading JSON Response");
-        System.out.println("IP " + myResponse.getString("origin"));
+        // read JSON response
+        JSONObject jsonResponse = new JSONObject(response.toString());
 
     }
 }
